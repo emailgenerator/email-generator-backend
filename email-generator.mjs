@@ -15,7 +15,7 @@ export async function getEmailFromPrompt(openai, promptText) {
     const openaiRes = await openai.createCompletion({
         "model": "text-davinci-003",
         "prompt": promptText,
-        "max_tokens": 50,                                // Max tokens used per response
+        "max_tokens": 80,                                 // Max tokens used per response
         "temperature": 0,                                 // Like --stylize of midjourney; 0 to 1 (0.9 is very wild, 0 is no risk)
     })
     return openaiRes.data.choices[0].text

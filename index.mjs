@@ -24,18 +24,17 @@ const app = express()
 app.use(express.json())
 app.use(cors())	            // Makes it cross-origin
 
-const IS_TEST_MODE = false
-
 const port = process.env.PORT || 3000
 
 app.get('/test', (req, res) => {
+    console.log('Got a request to test.')
     res.json({ message: 'Yes, this works' })
 })
 
 app.post('/generate', async (req, res) => {
     const inputData = req.body
     console.log(inputData)
-    if (IS_TEST_MODE) {
+    if (CONFIG.getIsTestMode()) {
         setTimeout(() => {
             res.json({ message: getTestEmailFromInputsData(inputData) })
         }, 2250)

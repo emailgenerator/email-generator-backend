@@ -7,6 +7,9 @@ const CONFIG = {
     organization: "org-anSGG3NG5MAAJBVZeIdptcy1",
     getSecretKey: function() {
         return process.env.SECRET_OPENAI_KEY
+    },
+    getIsTestMode: function() {
+        return process.env.IS_IN_TEST_MODE === 'true'
     }
 }
 
