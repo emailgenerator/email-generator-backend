@@ -2,6 +2,7 @@
 import fs from 'fs'
 import express from 'express'
 import cors from 'cors'
+import process from 'process'
 
 import { Configuration, OpenAIApi } from "openai"
 
@@ -11,8 +12,9 @@ import { getEmailFromPrompt, getPromptFromInputsData, getTestEmailFromInputsData
 
 const configuration = new Configuration({
     organization: CONFIG.organization,
-    apiKey: CONFIG.apiKey,
+    apiKey: CONFIG.getSecretKey(),
 })
+console.log({apiKey: CONFIG.getSecretKey()})
 const openai = new OpenAIApi(configuration)
 
 
