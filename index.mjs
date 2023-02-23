@@ -22,7 +22,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())	            // Makes it cross-origin
 
-const IS_TEST_MODE = true
+const IS_TEST_MODE = false
 
 const port = process.env.PORT || 3000
 
